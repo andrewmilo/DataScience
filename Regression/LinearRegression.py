@@ -19,9 +19,11 @@ def linear_prediction(x,m,b):
 def squared_error(y_vals, best_fit_line):
     return sum((best_fit_line-y_vals)**2)
 
-def coefficient_of_determination(x_vals, y_vals):
-    avg_y = [mean(y_vals) for y in y_vals]
-    # sq_error =
+def coefficient_of_determination(y_orig, y_new):
+    sq_error_regression_line = squared_error(y_orig, y_new)
+    avg_y = [mean(y_orig) for y in y_orig]
+    sq_error_avg = squared_error(y_orig, avg_y)
+    return 1 - sq_error_regression_line/sq_error_avg
 
 # y = mx + b
 m, b = fit_linear_model(x_axis,y_axis)
@@ -29,8 +31,11 @@ best_fit_line = [linear_prediction(x,m,b) for x in x_axis]
 
 x = 8
 y = linear_prediction(x,m,b)
-plt.scatter(x, y)
 
+r_sqr = coefficient_of_determination(y_axis, best_fit_line)
+print r_sqr
+
+plt.scatter(x, y)
 plt.scatter(x_axis,y_axis)
 plt.plot(x_axis, best_fit_line)
 plt.show()
