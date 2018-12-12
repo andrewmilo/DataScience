@@ -1,5 +1,9 @@
 import math
 
+
+"""
+    Vectors
+"""
 def add_vectors(v1, v2):
     return [n1 + n2 for n1, n2 in zip(v1,v2)]
 
@@ -21,6 +25,9 @@ def sum_of_squares2(v):
 def magnitude(v):
     return math.sqrt(sum_of_squares(v))
 
+def distance_btwn(v1,v2):
+    return magnitude(vector_subtract(v1,v2))
+
 v1 = [1,2,3]
 v2 = [41,23,52]
 
@@ -29,3 +36,14 @@ print dot_product(v1,v2)
 print sum_of_squares2(v1)
 print subtract_vectors(v1,v2)
 print magnitude(v1)
+
+"""
+    Matrices
+"""
+
+m1 = [[1,2,3],
+      [4,5,6]]
+m2 = [[1,2],
+      [3,4],
+      [5,6]]
+      
